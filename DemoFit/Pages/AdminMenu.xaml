@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoFit.Pages.AdminMenu"
+             Title="AdminMenu"
+			 x:Name="contentpage_admin">
+			
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="1*" />
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<BoxView Grid.Row="0"
+                 Grid.Column="0"
+				 	 Opacity=".5"
+                 Color="Black" />
+		
+		<ImageButton Source="icons8_people_500px.png"
+			
+			   Grid.Row="0"
+			   Grid.Column="0"
+               
+			   Pressed="ImageButton_Pressed"
+			   Clicked="ImageButton_Clicked"
+			   Released="ImageButton_Released"
+			   x:Name="imagebutton_userlist"
+			   />
+		
+		<Label Text="User List"
+			   Grid.Row="0"
+                 Grid.Column="0"
+			    HorizontalOptions="Center"
+			    VerticalOptions="End"
+			   Margin="0,0,0,30"
+			    FontSize="Large"
+			   TextColor="White"
+			   FontFamily="Lobster"
+			   FontAttributes="Bold"
+			   x:Name="label_userlist"
+			   ></Label>
+
+		<BoxView Grid.Row="0"
+				 Grid.Column="1"
+				 Opacity=".25"
+                 Color="White" />
+		
+		<BoxView Grid.Row="1"
+				 Grid.Column="0"
+				 	 Opacity=".25"
+                 Color="White" />
+		
+		<BoxView Grid.Row="1"
+                 Grid.Column="1"
+				 	 Opacity=".5"
+                 Color="Black" />
+
+		<BoxView Grid.Row="2"
+                 Grid.Column="1"
+				  	 Opacity=".25"
+                 Color="White" />
+
+		<BoxView Grid.Row="2"
+                 Grid.Column="2"
+				 	 Opacity=".5"
+                 Color="Black" />
+
+
+		<ImageButton Source="icons8_logout_rounded_left_500px.png"
+			
+			   Grid.Row="2"
+			   Grid.Column="2"
+               
+			   Pressed="ImageButton_Exit_Pressed"
+			   Clicked="ImageButton_Exit_Clicked"
+			   Released="ImageButton_Exit_Released"
+			   x:Name="imagebutton_exit"
+			   />
+
+		<Label Text="Back to Login"
+			    Grid.Row="2"
+                 Grid.Column="2"
+			    HorizontalOptions="Center"
+			    VerticalOptions="End"
+			   Margin="0,0,0,30"
+			    FontSize="Large"
+			   TextColor="White"
+			   FontFamily="Lobster"
+			   FontAttributes="Bold"
+			   x:Name="label_exit"
+			   ></Label>
+
+	</Grid>
+</ContentPage>
