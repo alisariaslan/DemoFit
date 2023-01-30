@@ -8,28 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoFit;
+using System.Collections;
 
 namespace DemoFit.Task
 {
     public class ApiTask
     {
+		Settings settings = new Settings();
 		
-		public static async Task<List<User>> GetUserListAsync()
+		public async Task<List<User>> GetUserListAsync()
 		{
 			List<User> userlist = new List<User>();
 
-			var myAPI = RestService.For<IMyAPI>(Settings.targetHostAddress);
+			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
 
 			await myAPI.GetUserList().ContinueWith(ret =>
 			{
 				if (ret.IsCompleted == true
 				 && ret.Status == TaskStatus.RanToCompletion)
 				{
-					userlist = ret.Result;
+					userlist= ret.Result.ToList();
+				}
+				if (ret.Status == TaskStatus.Faulted)
+				{
+					userlist = null;
 				}
 			});
 
-			return userlist;
+			return userlist; 
 		}
 
 		//public static async Task<User> GetUserWIdAsync(int id)
@@ -55,11 +61,11 @@ namespace DemoFit.Task
 		//	return user;
 		//}
 
-		public static async Task<User> GetUserWNameAsync(string username)
+		public async Task<User> GetUserWNameAsync(string username)
 		{
 			User user = new User();
 
-			var myAPI = RestService.For<IMyAPI>(Settings.targetHostAddress);
+			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
 
 			await myAPI.GetUserWName(username).ContinueWith(ret =>
 			{

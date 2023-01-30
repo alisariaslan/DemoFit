@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			  xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
+             x:Class="DemoFit.Pages.ListUser"
+			    xmlns:local="clr-namespace:DemoFit.Pages"
+             Title="ListUser">
+	<ContentPage.BindingContext>
+		<local:UserDataViewModel/>
+	</ContentPage.BindingContext>
+	
+	
+	<!--<dxg:DataGridView ItemsSource="{Binding Employees}">
+	</dxg:DataGridView>-->
+
+	<dxg:DataGridView ItemsSource="{Binding AllUser}" Tap="datagridview_Tap" x:Name="datagridview">
+		<dxg:DataGridView.Columns >
+			<dxg:TextColumn FieldName="Id" Caption="Id" 
+                        MaxWidth="50" VerticalContentAlignment="Center" />
+			<dxg:TextColumn FieldName="Username" 
+                         VerticalContentAlignment="Center" />
+			<dxg:TextColumn FieldName="Password"
+                         VerticalContentAlignment="Center" />
+			<!--<dxg:TemplateColumn FieldName="Password" Caption="Password" MinWidth="100" HorizontalHeaderAlignment="Start">
+				<dxg:TemplateColumn.DisplayTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+								<ColumnDefinition Width="50"/>
+							</Grid.ColumnDefinitions>
+							<Entry Grid.Column="0" HorizontalTextAlignment="Start" x:Name="entry_password" Text="{Binding Item.Password}"  IsPassword="True"/>
+							<CheckBox  Grid.Column="1" x:Name="checkbox_ispassword" IsChecked="true"   CheckedChanged="checkbox_ispassword_CheckedChanged"/>
+						</Grid>
+					</DataTemplate>
+				</dxg:TemplateColumn.DisplayTemplate>
+			</dxg:TemplateColumn>-->
+		</dxg:DataGridView.Columns>
+	</dxg:DataGridView>
+
+
+</ContentPage>

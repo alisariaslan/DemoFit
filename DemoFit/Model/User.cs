@@ -10,12 +10,13 @@ namespace DemoFit.Model
     public class User
     {
 		[JsonProperty("id")]
-		public int UserId { get; set; }
+		public int Id { get; set; }
 
 		[JsonProperty("username")]
 		public string Username { get; set; }
 
 		[JsonProperty("password")]
 		public string Password { get; set; }
+
 	}
 }

@@ -20,7 +20,7 @@ public partial class AdminMenu : ContentPage
 
 	private void ImageButton_Clicked(object sender, EventArgs e)
 	{
-		Navigation.PushAsync(new MainPage());
+		Navigation.PushAsync(new ListUser());
 	}
 
 	private void ImageButton_Released(object sender, EventArgs e)

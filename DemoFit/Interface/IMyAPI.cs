@@ -10,6 +10,9 @@ namespace DemoFit.Interface
 {
 	public interface IMyAPI
 	{
+		[Headers("Content-Type:application/json",
+		 "Authorization:Basic ZGVtbzpkZW1v",
+			"User-Agent:ZGVtb3Byb2plY3Q=")]
 		[Get("/User")]
 		Task<List<User>> GetUserList();
 
@@ -17,7 +20,8 @@ namespace DemoFit.Interface
 		//Task<User> GetUserWId(int user);
 
 		[Headers("Content-Type:application/json",
-		 "Authorization:Basic ZGVtbzpkZW1v", "User-Agent:ZGVtb3Byb2plY3Q=")]
+		 "Authorization:Basic ZGVtbzpkZW1v",
+			"User-Agent:ZGVtb3Byb2plY3Q=")]
 		[Get("/User/{username}")]
 		Task<User> GetUserWName(string username);
 	}

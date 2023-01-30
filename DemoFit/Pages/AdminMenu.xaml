@@ -73,7 +73,6 @@
 
 
 		<ImageButton Source="icons8_logout_rounded_left_500px.png"
-			
 			   Grid.Row="2"
 			   Grid.Column="2"
                
