@@ -13,8 +13,14 @@ namespace DemoFit.Interface
 		[Headers("Content-Type:application/json",
 		 "Authorization:Basic ZGVtbzpkZW1v",
 			"User-Agent:ZGVtb3Byb2plY3Q=")]
-		[Get("/User")]
+		[Get("/User/all")]
 		Task<List<User>> GetUserList();
+
+		[Headers("Content-Type:application/json",
+		 "Authorization:Basic ZGVtbzpkZW1v",
+			"User-Agent:ZGVtb3Byb2plY3Q=")]
+		[Get("/Product/all")]
+		Task<List<Product>> GetProductList();
 
 		//[Get("/User/{id}")]
 		//Task<User> GetUserWId(int user);
@@ -22,7 +28,7 @@ namespace DemoFit.Interface
 		[Headers("Content-Type:application/json",
 		 "Authorization:Basic ZGVtbzpkZW1v",
 			"User-Agent:ZGVtb3Byb2plY3Q=")]
-		[Get("/User/{username}")]
+		[Get("/User/name=/{username}")]
 		Task<User> GetUserWName(string username);
 	}
 }

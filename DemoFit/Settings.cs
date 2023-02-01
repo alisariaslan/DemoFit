@@ -10,11 +10,12 @@ namespace DemoFit
 	public class Settings
 	{
 		//if enableDebugMode is true then these area will not work
-		private string remoteHostAddress = "http://alisariaslan.duckdns.org:5288";
+		private string remoteHostAddress = "http://alisariaslan.duckdns.org:5188";
 
 		//enable if you want do debug in your local machine
 		private bool enableDebugMode = true;
-		private string[] hostAddressList = {"http://localhost:5288", "http://10.0.2.2:5288"};
+
+		private string[] hostAddressList = {"http://localhost:5188", "http://10.0.2.2:5188"};
 
 		public string TargetHostAddress
 		{

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  			  xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
+             x:Class="DemoFit.Pages.ListProduct"
+			    xmlns:local="clr-namespace:DemoFit.View"
+             Title="ListProduct">
+	<ContentPage.BindingContext>
+		<local:ProductDataViewModel/>
+	</ContentPage.BindingContext>
+
+	<dxg:DataGridView ItemsSource="{Binding AllProduct}"  x:Name="datagridview2">
+		<dxg:DataGridView.Columns >
+			<dxg:TextColumn FieldName="Id" Caption="Id" 
+                        MaxWidth="50" VerticalContentAlignment="Center" />
+			<dxg:TextColumn FieldName="Name"
+                        MaxWidth="0" VerticalContentAlignment="Center" />
+			<dxg:TextColumn FieldName="Price" 
+                        MaxWidth="75" VerticalContentAlignment="Center" />
+			<dxg:TextColumn FieldName="SellCount" 
+                        MaxWidth="75" VerticalContentAlignment="Center" />
+		</dxg:DataGridView.Columns>
+	</dxg:DataGridView>
+</ContentPage>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			  xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
              x:Class="DemoFit.Pages.ListUser"
-			    xmlns:local="clr-namespace:DemoFit.Pages"
+			    xmlns:local="clr-namespace:DemoFit.View"
              Title="ListUser">
 	<ContentPage.BindingContext>
 		<local:UserDataViewModel/>

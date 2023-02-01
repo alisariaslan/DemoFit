@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 
 using DevExpress.Maui;
-
+using DevExpress.Maui.Charts;
 namespace DemoFit;
 
 public static class MauiProgram

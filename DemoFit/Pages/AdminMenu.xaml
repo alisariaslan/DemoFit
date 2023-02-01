@@ -11,28 +11,21 @@
 			<RowDefinition Height="1*" />
 			<RowDefinition Height="1*" />
 		</Grid.RowDefinitions>
-
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-
 		<BoxView Grid.Row="0"
                  Grid.Column="0"
 				 	 Opacity=".5"
                  Color="Black" />
-		
 		<ImageButton Source="icons8_people_500px.png"
-			
 			   Grid.Row="0"
 			   Grid.Column="0"
-               
 			   Pressed="ImageButton_Pressed"
 			   Clicked="ImageButton_Clicked"
 			   Released="ImageButton_Released"
-			   x:Name="imagebutton_userlist"
-			   />
-		
+			   x:Name="imagebutton_userlist"/>
 		<Label Text="User List"
 			   Grid.Row="0"
                  Grid.Column="0"
@@ -41,47 +34,69 @@
 			   Margin="0,0,0,30"
 			    FontSize="Large"
 			   TextColor="White"
-			   FontFamily="Lobster"
 			   FontAttributes="Bold"
-			   x:Name="label_userlist"
-			   ></Label>
-
+			   x:Name="label_userlist"/>
 		<BoxView Grid.Row="0"
 				 Grid.Column="1"
 				 Opacity=".25"
                  Color="White" />
-		
+		<ImageButton Source="icons8_shopping_cart_512px.png"
+			   Grid.Row="0"
+			   Grid.Column="1"
+			   Pressed="ImageButton_productlist_Pressed"
+			   Clicked="ImageButton_productlist_Clicked"
+			   Released="ImageButton_productlist_Released"
+			   x:Name="imagebutton_productlist"/>
+		<Label Text="Product List"
+			   Grid.Row="0"
+                 Grid.Column="1"
+			    HorizontalOptions="Center"
+			    VerticalOptions="End"
+			   Margin="0,0,0,30"
+			    FontSize="Large"
+			   TextColor="White"
+			   FontAttributes="Bold"
+			   x:Name="label_productlist"/>
 		<BoxView Grid.Row="1"
 				 Grid.Column="0"
 				 	 Opacity=".25"
                  Color="White" />
-		
+		<ImageButton Source="icons8_bar_chart_480px.png"
+			   Grid.Row="1"
+			   Grid.Column="0"
+			   Pressed="ImageButton_productstatics_Pressed"
+			   Clicked="ImageButton_productstatics_Clicked"
+			   Released="ImageButton_productstatics_Released"
+			   x:Name="imagebutton_productstatics"/>
+		<Label Text="Product Statics"
+			   Grid.Row="1"
+                 Grid.Column="0"
+			    HorizontalOptions="Center"
+			    VerticalOptions="End"
+			   Margin="0,0,0,30"
+			    FontSize="Large"
+			   TextColor="White"
+			   FontAttributes="Bold"
+			   x:Name="label_productstatics"/>
 		<BoxView Grid.Row="1"
                  Grid.Column="1"
 				 	 Opacity=".5"
                  Color="Black" />
-
 		<BoxView Grid.Row="2"
                  Grid.Column="1"
 				  	 Opacity=".25"
                  Color="White" />
-
 		<BoxView Grid.Row="2"
                  Grid.Column="2"
 				 	 Opacity=".5"
                  Color="Black" />
-
-
 		<ImageButton Source="icons8_logout_rounded_left_500px.png"
 			   Grid.Row="2"
 			   Grid.Column="2"
-               
 			   Pressed="ImageButton_Exit_Pressed"
 			   Clicked="ImageButton_Exit_Clicked"
 			   Released="ImageButton_Exit_Released"
-			   x:Name="imagebutton_exit"
-			   />
-
+			   x:Name="imagebutton_exit"/>
 		<Label Text="Back to Login"
 			    Grid.Row="2"
                  Grid.Column="2"
@@ -92,8 +107,6 @@
 			   TextColor="White"
 			   FontFamily="Lobster"
 			   FontAttributes="Bold"
-			   x:Name="label_exit"
-			   ></Label>
-
+			   x:Name="label_exit"/>
 	</Grid>
 </ContentPage>

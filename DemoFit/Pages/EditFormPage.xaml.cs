@@ -16,6 +16,3 @@ public partial class EditFormPage : ContentPage
 	}
 }
 
-
-
-	

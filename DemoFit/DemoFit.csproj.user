@@ -14,6 +14,9 @@
     <MauiXaml Update="Pages\AdminMenu.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\ListProduct.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\ListUser.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -21,6 +24,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\EditFormPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\ProductStatics.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\TestPage.xaml">

@@ -15,7 +15,32 @@ namespace DemoFit.Task
     public class ApiTask
     {
 		Settings settings = new Settings();
-		
+
+		public async Task<List<Product>> GetProductListAsync()
+		{
+			List<Product> productlist = new List<Product>();
+
+			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
+
+
+			await myAPI.GetProductList().ContinueWith(ret =>
+			{
+				if (ret.IsCompleted == true
+				 && ret.Status == TaskStatus.RanToCompletion)
+				{
+					Console.WriteLine(ret);
+					Debug.WriteLine(ret);
+					productlist = ret.Result.ToList();
+				}
+				if (ret.Status == TaskStatus.Faulted)
+				{
+					productlist = null;
+				}
+			});
+
+			return productlist;
+		}
+
 		public async Task<List<User>> GetUserListAsync()
 		{
 			List<User> userlist = new List<User>();

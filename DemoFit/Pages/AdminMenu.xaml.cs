@@ -1,7 +1,13 @@
+using AndroidX.Lifecycle;
+using DemoFit.Data;
+using DemoFit.Task;
+
 namespace DemoFit.Pages;
 
 public partial class AdminMenu : ContentPage
 {
+	ApiTask apiTask = new ApiTask();
+
 	public AdminMenu()
 	{
 		InitializeComponent();
@@ -10,6 +16,13 @@ public partial class AdminMenu : ContentPage
 			contentpage_admin.BackgroundImageSource = "login_background_win.jpg";
 		else if (DeviceInfo.Platform.Equals(DevicePlatform.Android))
 			contentpage_admin.BackgroundImageSource = "login_background_phone.jpg";
+
+		Load();
+	}
+
+	public async void Load()
+	{
+		ProductViewModel.FakeProducts = await apiTask.GetProductListAsync();
 	}
 
 	private void ImageButton_Pressed(object sender, EventArgs e)
@@ -28,6 +41,52 @@ public partial class AdminMenu : ContentPage
 		imagebutton_userlist.ScaleTo(1, 100);
 		label_userlist.ScaleTo(1, 100);
 	}
+
+
+
+
+
+	private void ImageButton_productlist_Pressed(object sender, EventArgs e)
+	{
+		imagebutton_productlist.ScaleTo(1.1, 100);
+		label_productlist.ScaleTo(1.1, 100);
+	}
+
+	private void ImageButton_productlist_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new ListProduct());
+	}
+
+	private void ImageButton_productlist_Released(object sender, EventArgs e)
+	{
+		imagebutton_productlist.ScaleTo(1, 100);
+		label_productlist.ScaleTo(1, 100);
+	}
+
+
+
+
+	private void ImageButton_productstatics_Pressed(object sender, EventArgs e)
+	{
+		imagebutton_productstatics.ScaleTo(1.1, 100);
+		label_productstatics.ScaleTo(1.1, 100);
+	}
+
+	private void ImageButton_productstatics_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new ProductStatics());
+	}
+
+	private void ImageButton_productstatics_Released(object sender, EventArgs e)
+	{
+		imagebutton_productstatics.ScaleTo(1, 100);
+		label_productstatics.ScaleTo(1, 100);
+	}
+
+
+
+
+
 
 	private void ImageButton_Exit_Pressed(object sender, EventArgs e)
 	{
