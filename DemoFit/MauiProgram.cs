@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
 using DevExpress.Maui;
-using DevExpress.Maui.Charts;
+using DemoFit.Interface;
+
 namespace DemoFit;
 
 public static class MauiProgram
@@ -20,7 +21,10 @@ public static class MauiProgram
 
 #if DEBUG
 		builder.Logging.AddDebug();
+
 #endif
+		//builder.Services.AddRefitClient<IMyAPI>();
+
 		return builder.Build();
 	}
 }

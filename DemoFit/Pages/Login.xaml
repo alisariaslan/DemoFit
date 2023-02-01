@@ -23,7 +23,7 @@
 			<StackLayout>
 			<dxco:DXPopup x:Name="popup" PlacementTarget="{x:Reference button_login}" Placement="Top">
 				<StackLayout WidthRequest="200">
-					<Label x:Name="popup_label" Margin="10, 10"/>
+					<Label x:Name="popup_label" Padding="30"/>
 				</StackLayout>
 			</dxco:DXPopup>
 			<VerticalStackLayout>

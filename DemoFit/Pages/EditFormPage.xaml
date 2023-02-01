@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
              x:Class="DemoFit.Pages.EditFormPage"
-             Title="NewPage1">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="EditFormPage">
+	<VerticalStackLayout VerticalOptions="Center">
+		<Label Text="Kullanıcı adı:" Margin="30,0,30,0" FontSize="Medium"></Label>
+		<Entry x:Name="entry_edit_username" FontSize="Medium" Margin="30,0,30,0" ></Entry>
+		<Label Text="Şifre:" Margin="30,0,30,0" FontSize="Medium"></Label>
+		<Grid Margin="30,0,30,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition  Width="30"/>
+			</Grid.ColumnDefinitions>
+			<Entry Grid.Column="0" x:Name="entry_edit_password" FontSize="Medium"  Margin="0,0,30,0" 
+				   BindingContext="{x:Reference Name=checkbox_edit_showpassword}" IsPassword="{Binding IsChecked}"></Entry>
+			<CheckBox Grid.Column="1" x:Name="checkbox_edit_showpassword" IsChecked="True"></CheckBox>
+		</Grid>
+		<Button x:Name="button_edit_save" Text="Kaydet" Margin="30" Clicked="button_edit_save_Clicked" FontSize="Medium"></Button>
+		<dxco:DXPopup x:Name="popup" PlacementTarget="{x:Reference button_login}" Placement="Top" >
+			<StackLayout WidthRequest="200" Padding="30">
+				<Label x:Name="popup_label"/>
+			</StackLayout>
+		</dxco:DXPopup>
+	</VerticalStackLayout>
 </ContentPage>

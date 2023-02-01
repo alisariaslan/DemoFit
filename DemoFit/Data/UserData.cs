@@ -10,6 +10,11 @@ namespace DemoFit.Data
 		public ObservableCollection<User> Users { get; private set; }
 		public UserData()
 		{
+			Refresh();
+		}
+
+		public void Refresh()
+		{
 			Users = new ObservableCollection<User>();
 			GetUsersAsync();
 		}

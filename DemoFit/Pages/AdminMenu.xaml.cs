@@ -85,6 +85,22 @@ public partial class AdminMenu : ContentPage
 
 
 
+	private void ImageButton_seller_Pressed(object sender, EventArgs e)
+	{
+		imagebutton_seller.ScaleTo(1.1, 100);
+		label_seller.ScaleTo(1.1, 100);
+	}
+
+	private void ImageButton_seller_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new SellerPage());
+	}
+
+	private void ImageButton_seller_Released(object sender, EventArgs e)
+	{
+		imagebutton_seller.ScaleTo(1, 100);
+		label_seller.ScaleTo(1, 100);
+	}
 
 
 

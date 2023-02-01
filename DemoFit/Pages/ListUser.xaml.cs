@@ -24,5 +24,10 @@ public partial class ListUser : ContentPage
 			Navigation.PushAsync(editForm);
 		}
 	}
+
+	private void datagridview_PullToRefresh(object sender, EventArgs e)
+	{
+
+	}
 }
 

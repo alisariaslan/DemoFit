@@ -26,7 +26,7 @@
 			   Clicked="ImageButton_Clicked"
 			   Released="ImageButton_Released"
 			   x:Name="imagebutton_userlist"/>
-		<Label Text="User List"
+		<Label Text="Üye Listesi"
 			   Grid.Row="0"
                  Grid.Column="0"
 			    HorizontalOptions="Center"
@@ -40,14 +40,14 @@
 				 Grid.Column="1"
 				 Opacity=".25"
                  Color="White" />
-		<ImageButton Source="icons8_shopping_cart_512px.png"
+		<ImageButton Source="icons8_membership_card_400px.png"
 			   Grid.Row="0"
 			   Grid.Column="1"
 			   Pressed="ImageButton_productlist_Pressed"
 			   Clicked="ImageButton_productlist_Clicked"
 			   Released="ImageButton_productlist_Released"
 			   x:Name="imagebutton_productlist"/>
-		<Label Text="Product List"
+		<Label Text="Üyelikler"
 			   Grid.Row="0"
                  Grid.Column="1"
 			    HorizontalOptions="Center"
@@ -68,7 +68,7 @@
 			   Clicked="ImageButton_productstatics_Clicked"
 			   Released="ImageButton_productstatics_Released"
 			   x:Name="imagebutton_productstatics"/>
-		<Label Text="Product Statics"
+		<Label Text="Satış İstatistikleri"
 			   Grid.Row="1"
                  Grid.Column="0"
 			    HorizontalOptions="Center"
@@ -82,6 +82,25 @@
                  Grid.Column="1"
 				 	 Opacity=".5"
                  Color="Black" />
+
+		<ImageButton Source="icons8_shopping_cart_512px.png"
+			   Grid.Row="1"
+			   Grid.Column="1"
+			   Pressed="ImageButton_seller_Pressed"
+			   Clicked="ImageButton_seller_Clicked"
+			   Released="ImageButton_seller_Released"
+			   x:Name="imagebutton_seller"/>
+		<Label Text="Satış Yap"
+			   Grid.Row="1"
+                 Grid.Column="1"
+			    HorizontalOptions="Center"
+			    VerticalOptions="End"
+			   Margin="0,0,0,30"
+			    FontSize="Large"
+			   TextColor="White"
+			   FontAttributes="Bold"
+			   x:Name="label_seller"/>
+
 		<BoxView Grid.Row="2"
                  Grid.Column="1"
 				  	 Opacity=".25"
@@ -97,7 +116,7 @@
 			   Clicked="ImageButton_Exit_Clicked"
 			   Released="ImageButton_Exit_Released"
 			   x:Name="imagebutton_exit"/>
-		<Label Text="Back to Login"
+		<Label Text="Hesaptan Çık"
 			    Grid.Row="2"
                  Grid.Column="2"
 			    HorizontalOptions="Center"

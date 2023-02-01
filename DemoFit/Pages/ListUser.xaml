@@ -12,16 +12,22 @@
 	
 	<!--<dxg:DataGridView ItemsSource="{Binding Employees}">
 	</dxg:DataGridView>-->
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
 
-	<dxg:DataGridView ItemsSource="{Binding AllUser}" Tap="datagridview_Tap" x:Name="datagridview">
-		<dxg:DataGridView.Columns >
-			<dxg:TextColumn FieldName="Id" Caption="Id" 
+		<dxg:DataGridView ItemsSource="{Binding ProductCategories}" Tap="datagridview_Tap" x:Name="datagridview"  Grid.Row="0" 
+					  IsPullToRefreshEnabled="True" PullToRefreshCommand="{Binding PullToRefreshCommand}" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+			<dxg:DataGridView.Columns>
+				<dxg:TextColumn FieldName="Id" Caption="Id" 
                         MaxWidth="50" VerticalContentAlignment="Center" />
-			<dxg:TextColumn FieldName="Username" 
+				<dxg:TextColumn FieldName="Username" 
                          VerticalContentAlignment="Center" />
-			<dxg:TextColumn FieldName="Password"
+				<dxg:TextColumn Caption="Password" FieldName="Password"
                          VerticalContentAlignment="Center" />
-			<!--<dxg:TemplateColumn FieldName="Password" Caption="Password" MinWidth="100" HorizontalHeaderAlignment="Start">
+				<!--<dxg:TemplateColumn FieldName="Password" Caption="Password" MinWidth="100" HorizontalHeaderAlignment="Start">
 				<dxg:TemplateColumn.DisplayTemplate>
 					<DataTemplate>
 						<Grid>
@@ -35,8 +41,9 @@
 					</DataTemplate>
 				</dxg:TemplateColumn.DisplayTemplate>
 			</dxg:TemplateColumn>-->
-		</dxg:DataGridView.Columns>
-	</dxg:DataGridView>
-
+			</dxg:DataGridView.Columns>
+		</dxg:DataGridView>
+		<Label Grid.Row="1" Text="Sayfayı yenilemek için aşşağı kaydırın" HorizontalTextAlignment="Center"></Label>
+	</Grid>
 
 </ContentPage>

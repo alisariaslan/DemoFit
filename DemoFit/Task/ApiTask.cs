@@ -19,10 +19,7 @@ namespace DemoFit.Task
 		public async Task<List<Product>> GetProductListAsync()
 		{
 			List<Product> productlist = new List<Product>();
-
 			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
-
-
 			await myAPI.GetProductList().ContinueWith(ret =>
 			{
 				if (ret.IsCompleted == true
@@ -37,16 +34,13 @@ namespace DemoFit.Task
 					productlist = null;
 				}
 			});
-
 			return productlist;
 		}
 
 		public async Task<List<User>> GetUserListAsync()
 		{
 			List<User> userlist = new List<User>();
-
 			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
-
 			await myAPI.GetUserList().ContinueWith(ret =>
 			{
 				if (ret.IsCompleted == true
@@ -59,7 +53,6 @@ namespace DemoFit.Task
 					userlist = null;
 				}
 			});
-
 			return userlist; 
 		}
 
@@ -86,12 +79,53 @@ namespace DemoFit.Task
 		//	return user;
 		//}
 
-		public async Task<User> GetUserWNameAsync(string username)
+
+		public async Task<bool> UpdateUser(User user)
+		{
+			bool success = false;
+			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
+			await myAPI.UpdateUser(user).ContinueWith(ret =>
+			{
+				if (ret.IsCompleted == true
+				 && ret.Status == TaskStatus.RanToCompletion)
+				{
+					success = ret.Result;
+					Console.WriteLine("result: " + ret.Result);
+				}
+				if (ret.Status == TaskStatus.Faulted)
+				{
+					success = false;
+				}
+			});
+
+			return success;
+		}
+
+		public async Task<bool> PutLogeedInNotifyAsync(int id)
+		{
+			bool success = false;
+			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
+			await myAPI.PutLogeedInNotify(id).ContinueWith(ret =>
+			{
+				if (ret.IsCompleted == true
+				 && ret.Status == TaskStatus.RanToCompletion)
+				{
+					success = ret.Result;
+					Console.WriteLine("result: " + ret.Result);
+				}
+				if (ret.Status == TaskStatus.Faulted)
+				{
+					success = false;
+				}
+			});
+
+			return success;
+		}
+
+		public async Task<User> GetUserWName(string username)
 		{
 			User user = new User();
-
 			var myAPI = RestService.For<IMyAPI>(settings.TargetHostAddress);
-
 			await myAPI.GetUserWName(username).ContinueWith(ret =>
 			{
 				if (ret.IsCompleted == true
@@ -104,7 +138,6 @@ namespace DemoFit.Task
 				}
 			
 			});
-
 			return user;
 		}
 

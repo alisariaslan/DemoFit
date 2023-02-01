@@ -1,5 +1,6 @@
 using DemoFit.Model;
 using DemoFit.Task;
+using DemoFit.Tools;
 using System.Diagnostics;
 
 namespace DemoFit.Pages;
@@ -18,8 +19,8 @@ public partial class Login : ContentPage
 
 		frame_loginbackground.FadeTo(.95, 5000);
 
-		editor_username.Text = Microsoft.Maui.Storage.Preferences.Get("remember_username", "");
-		editor_password.Text = Microsoft.Maui.Storage.Preferences.Get("remember_password", "");
+		editor_username.Text = Preferences.Get("remember_username", "");
+		editor_password.Text = Preferences.Get("remember_password", "");
 		if (!editor_username.Text.Equals(""))
 			checkbox_remember_username.IsChecked = true;
 		if(!editor_password.Text.Equals(""))
@@ -40,43 +41,37 @@ public partial class Login : ContentPage
 		if (username.Equals(null) || pass.Equals(null))
 			return;
 
-		User user = await apiTask.GetUserWNameAsync(username);
+		User user = await apiTask.GetUserWName(username);
 		if (user != null)
 		{
-			Debug.WriteLine("Kullanýcý bulundu ->" + user.Username);
+			Console.WriteLine("Kullanýcý bulundu ->" + user.Username);
 			if(username.Equals(user.Username) && pass.Equals(user.Password))
 			{
-				Debug.WriteLine("Login baþarýlý");
+				Console.WriteLine("Login baþarýlý");
 				//await Navigation.PushAsync(new MainPage());
-
+				bool result = await apiTask.PutLogeedInNotifyAsync(user.Id);
+				if (!result)
+					Pop.Up(popup, popup_label, "Hata! Giriþ bilgisi güncellenemedi");
 				if (checkbox_remember_username.IsChecked)
-					Microsoft.Maui.Storage.Preferences.Set("remember_username", editor_username.Text);
+					Preferences.Set("remember_username", editor_username.Text);
 				if(checkbox_remember_pass.IsChecked)
-					Microsoft.Maui.Storage.Preferences.Set("remember_password", editor_password.Text);
+					Preferences.Set("remember_password", editor_password.Text);
 
 				App.Current.MainPage = new NavigationPage(new AdminMenu());
-			} else
-			{
-				popup_label.Text = "Hata -> DATA NOT EQUAL";
-				popup.IsOpen = true;
-			}
+			} else Pop.Up(popup, popup_label, "Hatalý kullanýcý bilgileri!");
 		}
-		else
-		{
-			popup_label.Text = "Hata -> DATA NULL";
-			popup.IsOpen = true;
-		}
+		else Pop.Up(popup, popup_label, "Bilinmeyen HATA!");
 	}
 
 	private void checkbox_remember_username_CheckedChanged(object sender, CheckedChangedEventArgs e)
 	{
 		if(!e.Value)
-		Microsoft.Maui.Storage.Preferences.Set("remember_username", "");
+		Preferences.Set("remember_username", "");
 	}
 
 	private void checkbox_remember_pass_CheckedChanged(object sender, CheckedChangedEventArgs e)
 	{
 		if(!e.Value)
-		Microsoft.Maui.Storage.Preferences.Set("remember_password", "");
+		Preferences.Set("remember_password", "");
 	}
 }
