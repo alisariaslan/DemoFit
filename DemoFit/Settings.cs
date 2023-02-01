@@ -13,7 +13,7 @@ namespace DemoFit
 		private string remoteHostAddress = "http://alisariaslan.duckdns.org:5188";
 
 		//enable if you want do debug in your local machine
-		private bool enableDebugMode = false;
+		private bool enableDebugMode = true;
 
 		private string[] hostAddressList = {"http://localhost:5188", "http://10.0.2.2:5188"};
 

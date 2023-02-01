@@ -134,6 +134,6 @@
 	  </PackageReference>
 	</ItemGroup>
 
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDemoFitHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionDemoFitHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionDemoFitHideInfoBar="True" XamarinHotReloadGenericExceptionInfoBarDemoFitHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionDemoFitHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

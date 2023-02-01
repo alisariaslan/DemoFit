@@ -3,6 +3,7 @@ using DemoFit.Task;
 using DemoFit.Tools;
 using DemoFit.View;
 using DevExpress.Maui.DataGrid;
+using Microsoft.Maui.Platform;
 
 namespace DemoFit.Pages;
 public partial class EditFormPage : ContentPage
@@ -36,7 +37,10 @@ public partial class EditFormPage : ContentPage
 	{
 		bool result = await apiTask.UpdateUser(user);
 		if (result)
+		{
 			Pop.Up(popup, popup_label, "Güncelleme baþarýlý.\nLütfen önceki sayfayý yenileyin");
+			Platform.CurrentActivity.HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+		}
 		else
 			Pop.Up(popup, popup_label, "Güncelleme baþarýsýz!");
 	}
